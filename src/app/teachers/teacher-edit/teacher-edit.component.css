@@ -1,0 +1,24 @@
+.teach-table-edit input{
+	width: 120%;
+	margin-bottom: 20px;
+}
+.teach-img-edit{
+	width: 250px;
+	clip-path: circle();
+}
+.teach-table-edit p{
+	margin-bottom: 35px;
+}
+
+/* .teach-table-edit td{
+width: 400px;
+} */
+.update tr{
+	border-bottom: 0px solid white;
+	}
+.teach-edit-card{
+	width: 400px;
+}
+.current td{
+	width: 400px;
+}

@@ -1,0 +1,18 @@
+.pup-img{
+	clip-path: circle(35%);
+	width: 200px;
+	
+}
+.pup-table{
+	text-align: center;
+}
+.pup-table th{
+	min-width: 100px;
+}
+.table-red{
+	background-color: 	lightcoral;
+	color: black;
+}
+.table-blue{
+	background-color: 		lightskyblue;
+}

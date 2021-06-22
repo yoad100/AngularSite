@@ -1,0 +1,184 @@
+<div class="d-flex flex-row">
+	
+	<div class="card mx-auto pupil-edit-card">
+		<table class="table update d-flex justify-content-center flex-column pup-table-edit"  *ngIf="Pupil | async as Pupil">
+			<thead>
+			  <tr class="d-flex justify-content-center">
+				<th scope="col">עדכון מידע</th>
+			  </tr>
+			</thead>
+			<tbody>
+			  <tr>
+				<th scope="row">שם</th>
+				<td>
+				  <input
+					class="form-control"
+					type="text"
+					[(ngModel)]="Pupil.name"
+				  />
+				</td>
+			  </tr>
+			  <tr>
+				<th scope="row" >ת.ז.</th>
+				<td>
+				  <input
+					class="form-control"
+					type="text"
+					[(ngModel)]="Pupil.id"
+				  />
+				</td>
+			  </tr>
+			  <tr>
+				<th scope="row">גיל</th>
+				<td>
+				  <input
+					class="form-control"
+					type="text"
+					[(ngModel)]="Pupil.age"
+				  />
+				</td>
+			  </tr>
+			  <tr>
+				<th scope="row">עיר מגורים</th>
+				<td>
+				  <input
+					class="form-control"
+					type="text"
+					[(ngModel)]="Pupil.city"
+				  />
+				</td>
+			  </tr>
+			  <tr>
+				<th scope="row">תמונה</th>
+				<td>
+				  <input
+					class="form-control"
+					type="text"
+					[(ngModel)]="Pupil.imgUrl"
+				  />
+				</td>
+			  </tr>
+			  <th scope="row" style="width:50px">כיתה:</th>
+			  
+			  <tr>
+				<td>
+				  <p class="inner-class">
+					כינוי:
+				  </p>
+				  <p class="inner-class">
+					מספר זיהוי:
+				  </p>
+				  <p class="inner-class">
+					מספר תלמידים:
+				  </p>
+				  <p class="inner-class">
+					מיקום כיתה:
+				  </p>
+				</td>
+				<td>
+				  <input
+					class="form-control"
+					type="text"
+					[(ngModel)]="Pupil.pupilClass.name"
+				  />
+				  <input
+					class="form-control"
+					type="text"
+					[(ngModel)]="Pupil.pupilClass.id"
+				  />
+				  <input
+					class="form-control"
+					type="text"
+					[(ngModel)]="Pupil.pupilClass.numberOfStudents"
+				  />
+				  <input
+					class="form-control"
+					type="text"
+					[(ngModel)]="Pupil.pupilClass.location"
+				  />
+				</td>
+			  </tr>
+			  
+			  <tr *ngFor="let subject of Pupil.subjects; index as i">
+				<th scope="row">מקצוע {{ i + 1 }}</th>
+				<td>
+				  <input
+					class="form-control"
+					type="text"
+					[(ngModel)]="Pupil.subjects[i].name"
+				  />
+				  <input
+					class="form-control"
+					type="text"
+					[(ngModel)]="Pupil.subjects[i].grade"
+				  />
+				</td>
+			  </tr>
+			</tbody>
+		  </table>
+	</div>
+
+	<div class="card mx-auto pupil-edit-card" >
+		<table class="table current d-flex justify-content-center flex-column pup-table-edit"  *ngIf="Pupil | async as Pupil">
+			<thead>
+			  <tr class="d-flex justify-content-center">
+				<th scope="col">מידע עדכני</th>
+			  </tr>
+			</thead>
+			<tbody>
+			  <tr>
+				<th scope="row">שם</th>
+				<td>{{ Pupil.name }}</td>
+			  </tr>
+			  <tr>
+				<th scope="row">ת.ז.</th>
+				<td>{{ Pupil.id }}</td>
+			  </tr>
+			  <tr>
+				<th scope="row">תמונה</th>
+				<td style="max-width: 250px">
+				  <img
+					src="{{ Pupil.imgUrl }}"
+					alt="pupil"
+					class="pup-img-edit"
+					style="object-fit: cover"
+				  />
+				</td>
+			  </tr>
+			  <tr>
+				<th scope="row">גיל</th>
+				<td>{{ Pupil.age }}</td>
+			  </tr>
+			  <tr>
+				<th scope="row">עיר מגורים</th>
+				<td>{{ Pupil.city }}</td>
+			  </tr>
+			 
+			  <tr>
+				<th scope="row">כיתה {{ Pupil.pupilClass.name }}</th>
+				<td>
+				  <p class="inner-class">
+					כינוי: {{ Pupil.pupilClass.name }}
+				  </p>
+				  <p class="inner-class">
+					מספר זיהוי: {{ Pupil.pupilClass.id }}
+				  </p>
+				  <p class="inner-class">
+					מספר תלמידים: {{ Pupil.pupilClass.numberOfStudents }}
+				  </p>
+				  <p class="inner-class">
+					מיקום כיתה: {{ Pupil.pupilClass.location }}
+				  </p>
+				</td>
+			  </tr>
+			  <tr *ngFor="let subject of Pupil.subjects; index as i">
+				<th scope="row">מקצוע {{ i + 1 }}</th>
+				<td>
+				  <p>{{ Pupil.subjects[i].name }}</p>
+				  ציון: {{ Pupil.subjects[i].grade }}
+				</td>
+			  </tr>
+			</tbody>
+		  </table>
+	</div>
+</div>

@@ -1,0 +1,45 @@
+<div class="container" style="padding-top: 2rem">
+  <table class="table table-bordered align-middle emp-table">
+    <thead>
+      <tr>
+        <th scope="col">ת.ז.</th>
+        <th scope="col">תמונה</th>
+        <th scope="col">שם מלא</th>
+        <th scope="col">גיל</th>
+        <th scope="col">עיר מגורים</th>
+        <th scope="col">תפקיד</th>
+        <th scope="col">שעות עבודה חודשיות</th>
+        <th scope="col">שכר שעתי</th>
+        <th scope="col">שכר חודשי</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let employee of employees;"
+        [ngClass]="{
+          'table-red': employee.paymentPerMonth() < 3000,
+          'table-blue': employee.paymentPerMonth() >= 3000
+        }"
+      >
+        <td style="justify-content: center; text-align: center">
+          {{ employee.id }}
+        </td>
+        <td>
+          <img
+            src="{{ employee.imgUrl }}"
+            alt="pupil"
+            class="emp-img"
+            style="object-fit: cover"
+          />
+        </td>
+        <td>{{ employee.name }}</td>
+        <td>{{ employee.age }}</td>
+        <td>{{ employee.city }}</td>
+        <td>{{ employee.jobTitle }}</td>
+        <td>{{ employee.workHoursPerMonth }}</td>
+        <td>{{ employee.paymentPerHour }}</td>
+        <td>{{ employee.paymentPerMonth() }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

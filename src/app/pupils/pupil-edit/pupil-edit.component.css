@@ -1,0 +1,20 @@
+.pup-table-edit input{
+	width: 120%;
+	margin-bottom: 20px;
+}
+.pup-img-edit{
+	width: 200px;
+	clip-path: circle();
+}
+/* .pup-table-edit td{
+width: 300px;
+} */
+.update tr{
+	border-bottom: 0px solid white;
+	}
+.pupil-edit-card{
+	width: 400px;
+}
+.current td{
+	width: 200px;
+}

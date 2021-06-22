@@ -1,0 +1,73 @@
+<div class="container" style="padding-top: 2rem">
+  <table class="table table-bordered align-middle pup-table">
+    <thead>
+      <tr>
+		  <th scope="col">ת.ז.</th>
+		  <th scope="col">תמונה</th>
+        <th scope="col">שם מלא</th>
+        <th scope="col">גיל</th>
+        <th scope="col">עיר מגורים</th>
+        <th scope="col">כיתה</th>
+        <th scope="col">נושאים וציונים</th>
+        <th scope="col">עריכה</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let pupil of pupils"
+        [ngClass]="{
+          'table-red': pupil.Avg() < 65,
+          'table-blue': pupil.Avg() >= 65
+        }"
+      >
+        <td>
+          {{ pupil.id }}
+        </td>
+		<td style="max-width: 250px">
+		  <img
+			src="{{ pupil.imgUrl }}"
+			alt="pupil"
+			class="img-thumbnail pup-img"
+			style="object-fit: cover"
+		  />
+		</td>
+        <td>{{ pupil.name }}</td>
+        <td>{{ pupil.age }}</td>
+        <td>{{ pupil.city }}</td>
+        <td>
+          <ul style="list-style-type: none; margin: 0; padding: 0">
+            <div>
+              <h5 style="text-align: center">
+                {{ pupil.pupilClass.name }}
+              </h5>
+              <p >
+                <li><i>שם מורה: </i>{{ pupil.pupilClass.teachersInfo.name }}</li>
+
+                <li><i>ת.ז: </i>{{ pupil.pupilClass.id }}</li>
+                <li>
+                  <i>מספר תלמידים: </i>{{ pupil.pupilClass.numberOfStudents }}
+                </li>
+                <li><i>מיקום כיתה: </i>{{ pupil.pupilClass.location }}</li>
+              </p>
+            </div>
+          </ul>
+        </td>
+        <td>
+          <div  >
+            <ul
+              *ngFor="let subject of pupil.subjects"
+              style="display: flex; align-items: center"
+            >
+              <li style="list-style-type: none; width: max-content">
+                {{ subject.name }}: {{ subject.grade }}
+              </li>
+            </ul>
+          </div>
+        </td>
+        <td>
+          <button class="btn btn-primary" [routerLink]="['/pupils', pupil.id]">edit</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

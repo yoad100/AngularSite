@@ -1,0 +1,22 @@
+<div >
+  <nav class="app-navbar">
+    <a class="btn" routerLink="/teachers" >
+      מורים
+    </a>
+	<a class="btn" routerLink="/pupils" >
+      תלמידים
+    </a>
+	<a class="btn" routerLink="/employees" >
+      עובדים
+    </a>
+	<a class="btn" routerLink="" >
+		ראשי
+	  </a>
+  </nav>
+
+ <div class="components-container">
+	 <router-outlet></router-outlet>
+
+ </div>
+  <footer class="d-flex justify-content-center mb-3">{{ footerText }}</footer>
+</div>

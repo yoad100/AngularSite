@@ -1,0 +1,24 @@
+
+.app-navbar {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 20px;
+	padding-top: 10px;
+	background-color: white;
+	height: 70px;
+	box-shadow: 0 4px 17px rgba(0, 0, 0, 0.5);
+	position: fixed;
+	width: 100%;
+	z-index: 5;
+	top: 0;
+}
+.app-navbar a{
+	height: 40px;
+}
+*{
+	direction: rtl;
+}
+.components-container{
+	width: 100%;
+	margin-top: 100px;
+}

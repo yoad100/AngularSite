@@ -1,0 +1,17 @@
+.emp-img{
+	width: 200px;
+	clip-path: circle(35% at center);
+}
+.emp-table td{
+	text-align: center;
+}
+.emp-table th{
+  width: 300px;
+}
+.table-red{
+	background-color: 	lightcoral;
+	color: black;
+}
+.table-blue{
+	background-color: 		lightskyblue;
+}

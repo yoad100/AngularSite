@@ -1,0 +1,61 @@
+<div class="container teachersContainer">
+  <div class="card teacher-card" *ngFor="let teacher of teachers">
+    <img
+      class="card-img-top"
+      src="{{ teacher.imgUrl }}"
+      alt="image"
+      class="teacher-school-img img-circle"
+    />
+    <div>
+      <div class="row-div">
+        <h5 class="card-title">{{ teacher.name }}</h5>
+       
+      </div>
+      <ul class="list-group-flush">
+        <li class="list-group-item"><b> תז: </b> {{ teacher.id }}</li>
+        <li class="list-group-item"><b> גיל: </b> {{ teacher.age }}</li>
+        <li class="list-group-item"><b> עיר מגורים: </b> {{ teacher.city }}</li>
+        <li class="list-group-item">
+          <b> נושאים: </b>
+          <ul *ngFor="let subject of teacher.subjects" class="subject">
+            <li >{{ subject }}</li>
+          </ul>
+        </li>
+        <li class="list-group-item">
+          <b> כיתות: </b>
+          <ul *ngFor="let class of teacher.classes" class="my-classes">
+            <div class="card" class="inner-card">
+              <h5 class="card-title" style="text-align: center">
+                {{ class.name }}
+              </h5>
+              <p class="card-text">
+                <li><i>מ.ז: </i>{{ class.id }}</li>
+                <li><i>מספר סטודנטים: </i>{{ class.numberOfStudents }}</li>
+                <li><i>מיקום כיתה: </i>{{ class.location }}</li>
+              </p>
+            </div>
+          </ul>
+        </li>
+        <li class="list-group-item">
+          <b> ותק: </b> {{ teacher.seniority }}
+        </li>
+        <li class="list-group-item">
+          <b> שעות עבודה חודשיות: </b> {{ teacher.workHoursPerMonth }}
+        </li>
+        <li class="list-group-item">
+          <b> תשלום שעתי: </b> {{ teacher.paymentPerHour }}₪
+        </li>
+        <li class="list-group-item">
+          <b> שכר חודשי: </b>
+          {{ teacher.paymentPerHour * teacher.workHoursPerMonth }}₪
+        </li>
+		
+      </ul>
+    </div>
+	<a
+		class="btn btn-primary full-btn"
+		[routerLink]="['/teachers', teacher.id]"
+		>edit</a
+	  >
+</div>
+</div>

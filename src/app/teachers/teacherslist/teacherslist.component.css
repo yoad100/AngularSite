@@ -1,0 +1,20 @@
+.teachersContainer{
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+.full-btn{
+	width: 100%;
+}
+.teacher-card{
+	width: 30rem;
+	align-items: center;
+	justify-content: space-between;
+	margin: 10px;
+}
+.teacher-school-img{
+	height: 200px;
+	width: 70%;
+	clip-path: circle(40%);
+}

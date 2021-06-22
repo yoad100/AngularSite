@@ -1,0 +1,223 @@
+<div class="d-flex flex-row" >
+  <div class="card mx-auto teach-edit-card">
+    <table
+      class="
+        table
+        update
+        d-flex
+        justify-content-center
+        flex-column
+        teach-table-edit
+      "
+      *ngIf="Teacher | async as Teacher"
+    >
+      <thead>
+        <tr class="d-flex justify-content-center">
+          <th scope="col">עדכון מידע</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">שם</th>
+          <td>
+            <input
+              class="form-control"
+              type="text"
+              [(ngModel)]="Teacher.name"
+            />
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">ת.ז.</th>
+          <td>
+            <input
+              class="form-control"
+              type="text"
+              [(ngModel)]="Teacher.id"
+            />
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">גיל</th>
+          <td>
+            <input
+              class="form-control"
+              type="text"
+              [(ngModel)]="Teacher.age"
+            />
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">עיר מגורים</th>
+          <td>
+            <input
+              class="form-control"
+              type="text"
+              [(ngModel)]="Teacher.city"
+            />
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">תמונה</th>
+          <td>
+            <input
+              class="form-control"
+              type="text"
+              [(ngModel)]="Teacher.imgUrl"
+            />
+          </td>
+        </tr>
+        <tr *ngFor="let subject of Teacher.subjects; index as i">
+          <th scope="row">מקצוע {{ i + 1 }}</th>
+          <td>
+            <input
+              #inputSubjects
+              class="form-control"
+              type="text"
+              [(ngModel)]="Teacher.subjects[i]"
+            />
+          </td>
+        </tr>
+        <th scope="col">כיתות:</th>
+        <tr
+          *ngFor="let class of Teacher.classes"
+          style="border-bottom: 1px solid lightgray"
+        >
+          <td>
+            <p class="inner-class">כינוי:</p>
+            <p class="inner-class">מספר זיהוי:</p>
+            <p class="inner-class">מספר תלמידים:</p>
+            <p class="inner-class">מיקום כיתה:</p>
+          </td>
+          <td>
+            <input
+              class="form-control class-input"
+              type="text"
+              [(ngModel)]="class.name"
+            />
+            <input
+              class="form-control class-input"
+              type="text"
+              [(ngModel)]="class.id"
+            />
+            <input
+              class="form-control class-input"
+              type="text"
+              [(ngModel)]="class.numberOfStudents"
+            />
+            <input
+              class="form-control class-input"
+              type="text"
+              [(ngModel)]="class.location"
+            />
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">ותק</th>
+          <td>
+            <input
+              class="form-control"
+              type="text"
+              [(ngModel)]="Teacher.seniority"
+            />
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">שעות חודשיות</th>
+          <td>
+            <input
+              class="form-control"
+              type="text"
+              [(ngModel)]="Teacher.workHoursPerMonth"
+            />
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">שכר שעתי</th>
+          <td>
+            <input
+              class="form-control"
+              type="text"
+              [(ngModel)]="Teacher.paymentPerHour"
+            />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+	</div>
+    <div class="card mx-auto teach-edit-card">
+      <table
+        class="
+          table
+          update
+          d-flex
+          justify-content-center
+          flex-column
+          teach-table-edit
+        "
+        *ngIf="Teacher | async as Teacher"
+      >
+        <thead>
+          <tr class="d-flex justify-content-center">
+            <th scope="col">מידע עדכני</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">שם</th>
+            <td>{{ Teacher.name }}</td>
+          </tr>
+          <tr>
+            <th scope="row">ת.ז.</th>
+            <td>{{ Teacher.id }}</td>
+          </tr>
+          <tr>
+            <th scope="row">גיל</th>
+            <td>{{ Teacher.age }}</td>
+          </tr>
+          <tr>
+            <th scope="row">עיר מגורים</th>
+            <td>{{ Teacher.city }}</td>
+          </tr>
+          <tr>
+            <th scope="row">תמונה</th>
+            <td style="max-width: 250px">
+              <img
+                src="{{ Teacher.imgUrl }}"
+                alt="pupil"
+                class="teach-img-edit"
+                style="object-fit: cover"
+              />
+            </td>
+          </tr>
+          <tr *ngFor="let subject of Teacher.subjects; index as i">
+            <th scope="row">מקצוע {{ i + 1 }}</th>
+            <td>{{ Teacher.subjects[i] }}</td>
+          </tr>
+          <tr *ngFor="let class of Teacher.classes">
+            <th scope="row">כיתה {{ class.name }}</th>
+            <td>
+              <p class="inner-class">כינוי: {{ class.name }}</p>
+              <p class="inner-class">מספר זיהוי: {{ class.id }}</p>
+              <p class="inner-class">
+                מספר תלמידים: {{ class.numberOfStudents }}
+              </p>
+              <p class="inner-class">מיקום כיתה: {{ class.location }}</p>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">ותק</th>
+            <td>{{ Teacher.seniority }}</td>
+          </tr>
+          <tr>
+            <th scope="row">שעות חודשיות</th>
+            <td>{{ Teacher.workHoursPerMonth }}</td>
+          </tr>
+          <tr>
+            <th scope="row">שכר שעתי</th>
+            <td>{{ Teacher.paymentPerHour }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</div>

@@ -1,0 +1,9 @@
+.home-page-container{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.school-img{
+	width: 600px;
+}
